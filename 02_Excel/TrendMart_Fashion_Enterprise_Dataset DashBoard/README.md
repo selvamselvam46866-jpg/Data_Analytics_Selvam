@@ -8,7 +8,7 @@ TrendMart Fashion Enterprise Sales Dashboard is an **Excel-based data analytics 
 
 ## 📊 Dashboard Preview
 
-![TrendMart Sales Dashboard](Dashboard/TrendMart_Fashion_Enterprise_Dataset DashBoard.png)
+![TrendMart Sales Dashboard](Dashboard/dashBoard.png)
 
 
 ---
