@@ -1,0 +1,175 @@
+AEROHOME MANUFACTURING — BUSINESS RECOMMENDATIONS
+
+Purpose
+
+This document translates the AeroHome Manufacturing Power BI dashboard
+findings into practical actions for production, quality, maintenance,
+energy, finance, procurement, supply chain, and workforce management.
+
+IMPORTANT
+
+Recommendations are based on the dashboard examples discussed in this
+project. Confirm current values, filter context, and underlying data
+before treating any observation as a verified business issue.
+
+1.  PRODUCTION PLANNING AND PLANT PERFORMANCE
+
+Recommendations: - Compare planned units and produced units by plant,
+product category, month, and shift. - Create a production shortfall
+measure and rank plants with the largest verified gap. - Review the
+schedule, machine availability, staffing, and material availability
+during low-achievement periods. - Set realistic monthly production
+targets based on demand, capacity, and historical performance. - Track
+corrective actions and review whether production achievement improves in
+the following period.
+
+Suggested KPIs: - Total Planned Units - Total Produced Units -
+Production Achievement % - Production Variance - Production Variance %
+
+2.  QUALITY AND DEFECT REDUCTION
+
+Recommendations: - Prioritize products with both high defect rates and
+high estimated defect-cost exposure. - Use Pareto analysis to identify
+the small number of products, defect types, or processes contributing
+most defects. - Investigate root causes such as material quality,
+machine settings, work instructions, and inspection consistency. - Track
+corrective and preventive actions with an owner and target completion
+date. - Recalculate defect rate as total defective units divided by
+total produced units; avoid averaging row-level percentages unless that
+is explicitly the intended metric.
+
+Suggested KPIs: - Total Defective Units - Defect Rate % - Estimated
+Defect Cost Exposure - Defects by Product / Plant / Machine - Rework or
+Scrap Cost, if available
+
+3.  MACHINE MAINTENANCE AND DOWNTIME
+
+Recommendations: - Rank machines and downtime reasons by total downtime
+minutes and production impact. - Investigate recurring breakdowns and
+schedule preventive maintenance based on equipment criticality and
+history. - Record downtime start, end, reason, machine, plant, and shift
+consistently. - Compare downtime before and after maintenance actions to
+determine whether they worked. - Check operator and machine
+relationships if every category displays the same downtime total.
+
+Suggested KPIs: - Total Downtime Minutes - Total Downtime Hours -
+Downtime by Machine - Downtime by Reason - Mean Time Between Failures
+(MTBF) and Mean Time to Repair (MTTR), if timestamps are available
+
+4.  ENERGY EFFICIENCY
+
+Recommendations: - Monitor energy per unit, calculated as total energy
+consumed divided by total produced units. - Compare plants producing
+similar product mixes before ranking their energy performance. -
+Investigate periods with high energy use but low production output. -
+Review idle-running equipment, compressed-air leaks, operating
+schedules, and maintenance conditions where relevant. - Set an
+energy-reduction target only after establishing a validated baseline.
+
+Suggested KPIs: - Total Energy Consumed (kWh) - Energy per Unit (kWh) -
+Energy by Plant / Product / Shift - Energy Cost, if tariff data is
+available
+
+5.  PROCUREMENT AND SUPPLIER RELIABILITY
+
+Recommendations: - Review suppliers with repeated late deliveries, long
+actual lead times, or low ratings. - Compare expected and actual lead
+times using consistent units and date definitions. - Segment supplier
+performance by material type and purchase-order value. - Establish
+supplier review meetings and corrective-action plans for recurring
+delivery issues. - Consider alternative qualified suppliers for critical
+materials when the risk assessment supports it.
+
+Suggested KPIs: - Total Purchase Orders - Procurement Spend - Delayed
+Orders - Delay Rate % - Expected vs Actual Lead Days - Supplier Rating -
+Supplier On-Time Delivery %
+
+6.  FINANCE AND COST CONTROL
+
+Recommendations: - Review high-spend suppliers and materials to identify
+negotiation or sourcing opportunities. - Compare unit cost with target
+price by product and investigate large variances. - Separate actual
+costs from estimated cost exposure and potential production value. -
+Validate currency, cost definitions, and units before combining
+measures. - Prioritize improvement projects using estimated savings,
+implementation cost, operational risk, and payback period.
+
+Suggested KPIs: - Procurement Spend - Average Purchase Order Value -
+Unit Cost vs Target Price - Estimated Defect Cost Exposure - Potential
+Unit Margin %, if reliable cost and price data is available
+
+7.  MATERIALS AND SUPPLY CHAIN RISK
+
+Recommendations: - Identify materials that are both costly and used by
+many products. - Assess dependency on a single supplier for critical
+materials. - Review standard cost, supplier rating, lead time, and
+availability together rather than relying on cost alone. - Maintain
+approved alternatives for critical materials where technically and
+commercially feasible. - Validate the product-material bridge table and
+dependency calculations before publishing risk rankings.
+
+Suggested KPIs: - Total Materials - Total Products - Product-Material
+Dependencies - Material Dependency Count - Material Standard Cost -
+High-Cost Materials - Supplier Dependence / Risk Level, if available
+
+8.  OPERATOR AND SHIFT PERFORMANCE
+
+Recommendations: - Compare operators using production volume, defect
+rate, and downtime together, with suitable context for product
+difficulty and hours worked. - Compare shifts using production, quality,
+downtime, and energy indicators. - Use results to identify training
+needs and process improvements, not to make decisions from a single
+metric alone. - Confirm each operator ID maps to the correct production
+and downtime records. - If all operators show identical values, validate
+active relationships and test measures in a table visual before
+interpreting charts.
+
+Suggested KPIs: - Total Operators - Production by Operator / Shift -
+Defect Rate by Operator / Shift - Downtime by Operator / Shift - Average
+Experience Years
+
+9.  POWER BI REPORT DESIGN AND GOVERNANCE
+
+Recommendations: - Keep definitions consistent across all nine report
+pages. - Use a shared Date table and shared Plant and Product dimensions
+where appropriate. - Confirm slicers filter every relevant visual and
+test cross-filter interactions. - Show units on KPI cards (units,
+minutes, kWh, currency) and format percentages correctly. - Add tooltips
+for definitions and a note describing the selected date range. -
+Validate headline totals against source tables and document refresh
+date, data owner, and measure definitions. - Avoid interpreting 100%
+stacked charts as actual production totals; use regular stacked or
+clustered charts when actual quantities are required.
+
+10. IMPLEMENTATION ROADMAP
+
+Immediate (Week 1–2): - Validate data quality, table relationships, KPI
+formulas, and slicer behavior. - Identify the top verified production
+shortfalls, defect contributors, downtime causes, and supplier delays.
+
+Short term (Month 1): - Assign owners to the highest-priority issues. -
+Start root-cause analysis for quality and downtime. - Review supplier
+performance and high-cost materials.
+
+Medium term (Months 2–3): - Evaluate improvement results against the
+baseline. - Refine preventive maintenance and energy-efficiency
+actions. - Review material alternatives and supplier-continuity plans.
+
+Ongoing: - Refresh the dashboard on an agreed schedule. - Review KPI
+trends with responsible teams. - Record action owners, due dates,
+status, and measured impact.
+
+SUCCESS MEASUREMENT
+
+For each recommendation, record: - Baseline value and baseline period -
+Target value and target date - Responsible owner - Planned action -
+Status - Actual measured result - Data source and validation notes
+
+FINAL NOTE
+
+These are recommendations for analysis and planning, not proof that a
+specific plant, supplier, machine, or operator is underperforming.
+Validate the data, consider operational context, and involve responsible
+teams before making business decisions.
+
+END OF FILE

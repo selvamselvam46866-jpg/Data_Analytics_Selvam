@@ -1,0 +1,169 @@
+AEROHOME MANUFACTURING — KEY INSIGHTS
+
+Purpose
+
+This file summarizes the key business insights for the AeroHome
+Manufacturing Power BI dashboard. The figures below are based on the
+dashboard values shared in the project conversation and should be
+validated against the final filtered report before presenting them as
+official results.
+
+1.  EXECUTIVE OVERVIEW
+
+-   Total planned units: approximately 1,500,000.
+-   Total produced units: approximately 1,325,480.
+-   Production achievement: approximately 88.4% in the original
+    Executive Overview dashboard example.
+-   Total defective units: approximately 72,560.
+-   Defect rate: approximately 5.5%.
+-   Total downtime: approximately 48,320 minutes.
+-   Total energy consumed: approximately 1,254,600 kWh.
+-   Procurement spend: approximately $2,845,600.
+-   Estimated defect cost exposure: approximately $362,170.
+
+Insight: Production is below the planned volume in the example
+dashboard, while defects and downtime are important areas for
+operational review. Confirm that all KPIs use the same date range and
+slicer selections before comparing them.
+
+2.  PRODUCTION AND PLANT PERFORMANCE
+
+-   Compare planned units against produced units by month and plant.
+-   Identify plants with the largest production shortfall, rather than
+    relying only on total production.
+-   Review monthly production achievement to identify periods of
+    improvement or decline.
+-   Compare production across product categories to understand which
+    categories contribute most to output.
+
+Recommended actions: - Review shortfall by plant, product, and shift. -
+Investigate months with lower production achievement. - Use the date,
+plant, and product-category slicers to isolate patterns.
+
+3.  MACHINE AND DOWNTIME PERFORMANCE
+
+-   Total downtime in the example dashboard is 48,320 minutes.
+-   Review downtime by machine, operator, plant, and reason where those
+    fields exist.
+-   Rank the largest downtime contributors to help prioritize
+    investigation.
+
+Recommended actions: - Focus maintenance reviews on the machines or
+causes with the highest recorded downtime. - Check whether downtime is
+concentrated in particular shifts or plants. - Verify operator and
+machine relationships in the data model if every category displays the
+same downtime total.
+
+4.  QUALITY ANALYSIS
+
+-   The example dashboard shows 72,560 defective units and a 5.5% defect
+    rate.
+-   Compare defect rates by product, plant, machine, and operator.
+-   Review estimated defect cost exposure alongside defect counts to
+    prioritize financially significant quality issues.
+
+Recommended actions: - Investigate products with high defect rates and
+high defect cost exposure. - Validate the defect-rate calculation as
+total defective units divided by total produced units. - Confirm that
+the operator, plant, and product filters correctly affect both numerator
+and denominator.
+
+5.  OPERATIONAL EFFICIENCY AND ENERGY
+
+-   The example dashboard shows energy consumption of 1,254,600 kWh.
+-   Track energy per unit as total energy consumed divided by total
+    produced units.
+-   Compare energy consumption and production achievement across plants.
+-   Review shift-level production and defect rates to identify
+    operational differences.
+
+Recommended actions: - Investigate high energy per unit after accounting
+for product mix and production volume. - Compare similar plants and
+shifts before concluding that one is less efficient. - Ensure energy and
+production facts are connected to shared date and plant dimensions where
+appropriate.
+
+6.  FINANCE AND COST ANALYSIS
+
+-   Example procurement spend: $2,845,600.
+-   Example estimated defect cost exposure: $362,170.
+-   Compare material standard cost, purchase spend, and defect cost
+    exposure.
+-   Review unit cost versus target price by product if those fields are
+    available.
+
+Recommended actions: - Prioritize high-spend materials for purchasing
+review. - Investigate high defect-cost products and their underlying
+quality patterns. - Confirm currency and cost definitions before making
+financial comparisons.
+
+7.  PROCUREMENT AND SUPPLIER PERFORMANCE
+
+-   Example dashboard values include 1,250 purchase orders, 210 delayed
+    orders, and a 16.8% delay rate.
+-   Compare expected and actual lead times by supplier.
+-   Review supplier spend alongside delivery status and supplier
+    ratings.
+
+Recommended actions: - Review suppliers with repeated delays or longer
+actual lead times. - Consider spend, delay rate, and supplier rating
+together rather than using one metric alone. - Validate that
+purchase-order counts use distinct purchase-order IDs.
+
+8.  MATERIALS AND SUPPLY CHAIN RISK
+
+-   The example dashboard shows 58 materials, 24 products, and 186
+    product-material dependencies.
+-   Compare material dependency counts with standard cost.
+-   Review high-cost materials and materials used across many products.
+-   Compare procurement spend by material and supplier dependence where
+    data is available.
+
+Recommended actions: - Investigate materials that are both expensive and
+used by many products. - Validate the material-to-product bridge table
+and its relationships before interpreting dependency counts. - Treat a
+high cost or high dependency as a potential exposure indicator, not
+proof of an actual supply disruption.
+
+9.  OPERATOR AND SHIFT PERFORMANCE
+
+-   Compare production, defective units, defect rate, downtime, and
+    experience by operator.
+-   Compare production volume, defects, downtime, and energy across Day,
+    Evening, and Night shifts.
+-   Use operator-level rankings to identify where additional
+    investigation may be useful.
+
+Recommended actions: - Validate that each operator ID maps to the
+correct production and downtime records. - If every operator shows the
+same downtime or defect rate, check active one-to-many relationships and
+filter context. - Avoid drawing conclusions from charts until
+operator-level totals have been tested in a table visual.
+
+10. DATA QUALITY AND REPORT VALIDATION
+
+Before presenting the dashboard: - Confirm all report pages use the
+intended date range. - Test date, plant, product category, material, and
+shift slicers. - Reconcile KPI totals with the underlying fact tables. -
+Check that dimension keys are unique and relationships are active. -
+Confirm percentages are formatted as percentages, not raw decimals. -
+Confirm currency units and display units (K/M/B) are consistent. - Avoid
+mixing figures from different dashboard versions or slicer states.
+
+FINAL SUMMARY
+
+The AeroHome dashboard is intended to help managers monitor production
+attainment, quality, downtime, energy, cost, procurement, material
+dependency, and workforce performance. The strongest next step is to
+investigate the largest verified shortfalls and cost exposures, then
+validate causes at plant, product, machine, supplier, and shift level.
+
+IMPORTANT NOTE
+
+The values in this file are example figures from the project dashboard
+conversation, not independently verified live business results. Some
+screenshots show different values because of different pages or
+dashboard versions. Use the final Power BI report’s current filter
+context as the source of truth.
+
+END OF FILE

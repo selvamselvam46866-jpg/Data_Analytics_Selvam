@@ -1,0 +1,182 @@
+AEROHOME MANUFACTURING — DAX MEASURES
+
+IMPORTANT This starter reference is based on the AeroHome dashboard
+pages and KPI names discussed. Replace example table and column names
+with the exact names in your Power BI model. Validate every measure
+against your actual schema.
+
+1.  CORE PRODUCTION
+
+total planned units = sum(fact_production[planned_units])
+
+total produced units = sum(fact_production[produced_units])
+
+production achievement % = divide([total produced units], [total planned
+units], 0)
+
+total defective units = sum(fact_production[defective_units])
+
+defect rate % = divide([total defective units], [total produced units],
+0)
+
+production variance = [total produced units] - [total planned units]
+
+production variance % = divide([production variance], [total planned
+units], 0)
+
+2.  DOWNTIME AND ENERGY
+
+total downtime minutes = sum(fact_downtime[downtime_minutes])
+
+total downtime hours = divide([total downtime minutes], 60, 0)
+
+total energy consumed = sum(fact_energy[energy_kwh])
+
+energy per unit (kwh) = divide([total energy consumed], [total produced
+units], 0)
+
+3.  QUALITY AND DEFECT COST
+
+estimated defect cost exposure = sumx( fact_production,
+fact_production[defective_units] *
+fact_production[estimated_cost_per_defect] )
+
+4.  PROCUREMENT
+
+procurement spend = sumx( fact_purchase_orders,
+fact_purchase_orders[quantity_ordered] *
+fact_purchase_orders[unit_price] )
+
+total purchase orders =
+distinctcount(fact_purchase_orders[purchase_order_id])
+
+delayed orders = calculate( [total purchase orders],
+fact_purchase_orders[delivery_status] = “Delayed” )
+
+delay rate % = divide([delayed orders], [total purchase orders], 0)
+
+average expected lead days =
+average(fact_purchase_orders[expected_lead_days])
+
+average actual lead days =
+average(fact_purchase_orders[actual_lead_days])
+
+supplier rating = average(fact_purchase_orders[supplier_rating])
+
+average purchase order value = divide([procurement spend], [total
+purchase orders], 0)
+
+5.  MATERIALS AND SUPPLY CHAIN
+
+total materials = distinctcount(dim_materials[material_id])
+
+total products = distinctcount(dim_products[product_id])
+
+product-material dependencies = countrows(product_material)
+
+material dependency count = distinctcount(product_material[product_id])
+
+materials per product = distinctcount(product_material[material_id])
+
+total material standard cost = sum(dim_materials[standard_cost])
+
+high cost materials = calculate( [total materials],
+dim_materials[standard_cost] >= 200 )
+
+Note: 200 is an example cost threshold. Change it to the agreed
+threshold in your project.
+
+6.  OPERATOR AND SHIFT PERFORMANCE
+
+total operators = distinctcount(dim_operators[operator_id])
+
+average operator experience years =
+average(dim_operators[experience_years])
+
+operator defect rate % = divide([total defective units], [total produced
+units], 0)
+
+Operator-level measures show different values per operator only when the
+operator dimension filters the fact tables through active relationships.
+Example: dim_operators[operator_id] (1) -> fact_production[operator_id]
+() dim_operators[operator_id] (1) -> fact_downtime[operator_id] ()
+
+7.  DATE AND PERIOD COMPARISON
+
+production last period = calculate( [total produced units],
+dateadd(dim_date[date], -1, month) )
+
+production change = [total produced units] - [production last period]
+
+production change % = divide([production change], [production last
+period], 0)
+
+previous period downtime = calculate( [total downtime minutes],
+dateadd(dim_date[date], -1, month) )
+
+downtime change % = divide( [total downtime minutes] - [previous period
+downtime], [previous period downtime], 0 )
+
+These measures assume dim_date[date] is a continuous Date table, marked
+as the model’s Date table and related to the relevant fact date columns.
+
+8.  VALIDATION MEASURES
+
+production rows = countrows(fact_production)
+
+downtime rows = countrows(fact_downtime)
+
+purchase order rows = countrows(fact_purchase_orders)
+
+selected plant = selectedvalue(dim_plant[plant_name], “All Plants”)
+
+selected product category = selectedvalue(dim_products[category], “All
+Categories”)
+
+9.  SUGGESTED VISUAL MAPPING
+
+Executive Overview: - KPI cards: [total planned units], [total produced
+units], [production achievement %], [total defective units], [defect
+rate %], [total downtime minutes], [total energy consumed], [procurement
+spend], [estimated defect cost exposure] - Production trend:
+dim_date[month_year], [total produced units], [production achievement
+%] - Production by plant: dim_plant[plant_name], [total produced
+units] - Production by category: dim_products[category], [total produced
+units]
+
+Operational Efficiency: - KPI cards: [production achievement %], [defect
+rate %], [total downtime minutes], [total energy consumed], [energy per
+unit (kwh)] - Energy by plant: dim_plant[plant_name], [total energy
+consumed] - Production by shift: shift field, [total produced units]
+
+Procurement & Supplier Performance: - KPI cards: [total purchase
+orders], [procurement spend], [delayed orders], [delay rate %], [average
+expected lead days], [average actual lead days], [supplier rating] -
+Spend by supplier: supplier name, [procurement spend] - Expected vs
+actual lead time: supplier name, expected lead days, actual lead days
+
+Materials & Supply Chain Risk: - Dependency chart: material name,
+[material dependency count] - Standard cost chart: material name,
+standard cost - Materials per product: product name, [materials per
+product] - Scatter chart: X = standard cost; Y = [material dependency
+count]; Details = material name; Legend = risk level if available; Size
+= material-level procurement spend if available. - Procurement spend by
+material: material name and a material-level spend measure.
+
+10. TROUBLESHOOTING
+
+If every operator shows the same downtime or defect rate: 1. Confirm
+dim_operators[operator_id] has unique values. 2. Confirm active
+one-to-many relationships from dim_operators to the relevant fact
+tables. 3. Confirm fact tables contain matching operator_id values. 4.
+Use a simple base measure, e.g. total downtime minutes =
+sum(fact_downtime[downtime_minutes]). 5. Test a Table visual with
+operator_id and the measure before formatting the chart. 6. Avoid
+all(fact_downtime) in a base measure unless intentionally removing
+filters.
+
+If every shift shows the same share: - Use a regular Stacked Bar/Column
+chart for actual values. Use a 100% Stacked chart only when percentage
+composition is intended.
+
+END OF FILE
