@@ -1,0 +1,84 @@
+NOVITECH MANUFACTURING – RECOMMENDATIONS
+Production, Quality, Finance, Operations and Supply Chain Analytics
+Data period: 01 January 2024 – 31 December 2025
+
+Basis: Recommendations are based on the supplied Novitech CSV tables and the derived aggregates in the companion Key Insights report. Amounts are expressed as dataset cost units because the supplied CSVs do not identify a currency. Recommendations indicate areas for review; dashboard values alone do not prove root causes.
+
+01. PRODUCTION & PLANT PERFORMANCE – RECOMMENDATIONS
+• Review plant output alongside defects, downtime and energy rather than ranking plants by production volume alone. Munich Electronics has the highest recorded production (325,469 units) and the highest absolute defects (5,722), while Tokyo Assembly records 306,559 units and the lowest plant defect rate (about 1.29%).
+• Investigate the higher defect rates at Monterrey Stamping (about 2.05%) and Detroit Engine Plant (about 2.02%) against product mix, run conditions and inspection practices. Use this as a review priority, not as proof of a plant-level cause.
+• Review monthly production variability. July 2024 has the highest recorded monthly output at about 49.2K units, while June 2025 is lowest at about 36.2K units. Compare these periods with staffing, product mix and operating records.
+• Review downtime at Munich Electronics, which records about 19,107 minutes, the largest plant total. Compare downtime with run count and production volume to determine whether it reflects scale or an operational issue.
+• Validate energy-per-unit results before acting on them. Shanghai Battery Gigafactory is about 10.48 kWh per recorded unit and Detroit Engine Plant about 8.39, compared with much lower values at Tokyo Assembly and Munich Electronics. Confirm metering units, production completeness and plant operating context.
+• Resolve 21 missing quantity_produced values in the production table before using production totals or defect-rate comparisons as final performance measures.
+• Planned production units are not present in the supplied production CSV. Do not report production achievement or planned-output shortfall until an approved target/plan dataset is added.
+
+02. QUALITY & OPERATIONAL EFFICIENCY – RECOMMENDATIONS
+• Treat the overall defect rate of about 1.71% as provisional until missing production quantities are resolved; 17,649 recorded defects include records with missing produced quantity.
+• Prioritize a process review for Avionics Controller, which has the highest observed product defect rate at about 3.80% (1,166 defects across 30,725 recorded produced units). Compare its product mix and run conditions with lower-rate products before assigning causes.
+• Prioritize absolute defect reduction for Solar Inverter, which has the highest defect count at 5,397 (about 2.09% of its recorded production). High defect volume and high defect rate should be reviewed as separate signals.
+• Include Renewable Energy and Automotive in category-level quality reviews. They record about 6,822 and 3,405 defects, respectively, with defect rates of about 2.05% and 2.02%. Aerospace has the highest category defect rate at about 2.64%, despite lower total production volume.
+• Investigate products with high estimated defect-cost exposure. EV Battery Pack is about 7.77 million cost units, Solar Inverter about 4.32 million, Home Energy Storage Wall about 3.14 million, and Avionics Controller about 2.92 million.
+• Review the September 2025 downtime peak of about 4,881 minutes alongside run-level operating records. The supplied table has downtime minutes but no downtime reason/category field, so specific causes cannot be isolated from this dataset alone.
+• Do not create rework rate, inspection pass/fail or defect-type recommendations from the current files. A separate quality-inspection table, inspection status and defect-type field were not supplied.
+
+03. FINANCE & COST ANALYSIS – RECOMMENDATIONS
+• Monitor procurement-spend concentration. Lithium-Ion Cells account for approximately 9.36 million cost units, about 43.4% of total calculated procurement spend; review price movement, order volumes and continuity arrangements for this material.
+• Review supplier concentration as well as material concentration. Apex Lithium Corp accounts for approximately 9.36 million cost units of supplier-linked spend (about 43.4%), although its recorded delay rate is relatively low at about 2.4%. Consider spend concentration and delivery risk together.
+• Investigate the approximately 21.02 million cost units of estimated defect-cost exposure. Prioritize EV Battery Pack, Solar Inverter and Home Energy Storage Wall because they contribute the largest product-level estimates.
+• Use estimated production cost context (about 1.128 billion cost units) and potential production value context (about 1.725 billion cost units) to compare products and plants for planning only. These are calculated as produced quantity × unit cost and produced quantity × target price, respectively; neither is formal accounting COGS or actual revenue.
+• Use potential unit margin as target-price-minus-unit-cost context, not as actual profit. The supplied data does not contain sales transactions or recognized revenue.
+• Keep the currency label neutral (cost units) in dashboards and reports until the data owner confirms the currency. The CSVs contain numeric cost fields but no currency identifier.
+• Compare product cost, defect volume and estimated defect exposure together so quality improvement work can be prioritized by both operational and potential financial impact.
+
+04. PROCUREMENT & SUPPLIER PERFORMANCE – RECOMMENDATIONS
+• Improve delivery monitoring for the 171 purchase orders flagged delayed, equivalent to about 10.69% of 1,600 orders. Track this measure consistently over time and confirm the business definition of the is_delayed flag.
+• Prioritize delivery review for Global Packaging Logistics (49 delayed out of 263 orders; about 18.63%), MexiStamping S.A. (37 of 203; about 18.23%) and Shanghai Copper & Wire (40 of 269; about 14.87%). These suppliers also show average recorded lead times of roughly 14 days.
+• Use Apex Lithium Corp as a comparison point for delivery monitoring, not as proof that its performance can automatically be replicated. It has 125 orders, 3 flagged delays and a recorded supplier rating of 5.0.
+• Monitor supplier rating, order volume, procurement spend, delayed-order rate and lead time together rather than using a rating alone. Ratings are missing for Silicon Valley Semiconductors and Bavarian Precision Parts.
+• Review procurement spend by supplier and material together. Apex Lithium Corp/Lithium-Ion Cells dominate spend; concentration deserves business-continuity monitoring even while the supplier's recorded delay rate is low.
+• Correct or explicitly flag the 14 purchase orders with missing lead_time_days. Average recorded lead time is about 9.84 days across the 1,586 nonblank records.
+• Avoid expected-versus-actual lead-time comparisons unless separate expected and actual lead-time fields are provided. The current file contains only one lead_time_days field plus the is_delayed flag.
+
+05. RAW MATERIALS & SUPPLY CHAIN RISK – RECOMMENDATIONS
+• Review the most widely shared BOM materials before changes to sourcing or stock policy. Copper Wire Spool is linked to six products; Electrical Connectors, High-Strength Steel Sheets and Microcontrollers are each linked to five products.
+• Monitor the high total procurement spend on Lithium-Ion Cells separately from per-unit standard cost. Lithium-Ion Cells lead total spend, while Hydraulic Cylinders have the highest available standard cost (120 cost units per stated unit) and Aluminum Castings follow at 45.
+• Resolve missing standard costs for Fiberglass Rolls and Temperature Sensors before using material cost rankings for all 12 materials.
+• Fill missing units of measure for Semiconductor Chips and Power Transistors. Standard-cost comparisons are difficult to interpret where units are missing or differ by material.
+• Investigate material-level delayed orders, particularly Fiberglass Rolls, which has 28 orders flagged delayed in the supplied purchase-order data. Compare delay count with order volume and delay rate before ranking suppliers or materials.
+• Maintain a product-material dependency matrix so teams can identify materials used across multiple products and assess potential production-continuity impact if supply is interrupted.
+• Do not label downtime as supply-chain downtime from the current data. The production fact has downtime minutes but no categorized reason or supply-chain downtime flag.
+
+06. OPERATOR & SHIFT PERFORMANCE – RECOMMENDATIONS
+• Correct the two missing operator shift assignments before drawing final shift conclusions. Their records account for 393 production runs, 118,874 recorded produced units, 2,283 defects and 8,913 downtime minutes. Keep an Unknown/Blank shift visible until source data is corrected.
+• Among runs with an assigned shift, Night records the highest production (446,797 units), the highest defects (8,162) and the highest downtime (36,838 minutes). Review these metrics together and normalize for run volume, product mix and operator allocation rather than judging performance by output alone.
+• Review operator-level defect counts together with production volume and defect rate. Michael Moore has the highest absolute defect count (1,596), while Michael Williams has an observed defect rate of about 3.29% (1,516 defects across 46,036 units). These are investigation signals, not conclusions about individual fault.
+• Review downtime contributions for operators with higher recorded totals, including John Jackson (5,560 minutes) and Joseph Lopez (5,261 minutes), using machine/product assignments and run context where available.
+• Repair incomplete operator master data: one operator has a missing last name, two have missing shifts, and two have missing experience values. Average experience is about 10.11 years across the 18 operators with recorded experience.
+• Compare operator experience with production, defects and downtime to guide coaching or process review, but do not assume experience alone explains performance. The supplied data does not contain training, machine assignment or detailed root-cause fields.
+
+07. CROSS-DASHBOARD MANAGEMENT RECOMMENDATIONS
+• Establish a recurring review of production, defects, downtime, energy intensity, procurement spend, supplier delivery, BOM dependencies and operator/shift metrics together.
+• Prioritize cases where several indicators overlap: Avionics Controller's high defect rate, EV Battery Pack's high estimated defect-cost exposure, high energy per unit at Shanghai and Detroit, and high delay rates at Global Packaging Logistics and MexiStamping.
+• Monitor high spend concentration in Lithium-Ion Cells and Apex Lithium Corp alongside shared material dependencies and supplier delays, so cost savings do not unintentionally increase continuity risk.
+• Use both absolute and normalized KPIs: defect count with defect rate, downtime minutes with run count/output, and energy consumption with produced units.
+• Create a data-quality owner/action list for missing production quantities, lead times, supplier ratings, material costs/units and operator attributes, then refresh measures after corrections.
+• Refresh the Power BI dashboard when new records are received and compare like-for-like date periods, plants, products and shift groups.
+
+08. RECOMMENDATION PRIORITIES
+• Priority 1 – Resolve core data-quality gaps: 21 missing production quantities, 14 missing purchase-order lead times, missing supplier ratings, missing raw-material costs/units, and missing operator shift/experience details.
+• Priority 2 – Review Avionics Controller's approximately 3.80% defect rate and Solar Inverter's 5,397 defects; establish process-level investigation using production and quality records.
+• Priority 3 – Reduce potential quality-related cost exposure by reviewing EV Battery Pack, Solar Inverter and Home Energy Storage Wall, which have the largest estimated product-level defect-cost exposures.
+• Priority 4 – Improve delivery reliability for Global Packaging Logistics, MexiStamping S.A. and Shanghai Copper & Wire, which have the highest observed supplier delay rates in the supplied data.
+• Priority 5 – Investigate energy-per-unit outliers at Shanghai Battery Gigafactory and Detroit Engine Plant after validating meters, unit consistency and production completeness.
+• Priority 6 – Manage concentration risk around Lithium-Ion Cells and Apex Lithium Corp, which each account for about 43.4% of calculated procurement spend by their respective material/supplier grouping.
+• Priority 7 – Correct missing shift mappings and evaluate Night shift production, defects and downtime together before using operator/shift metrics for performance decisions.
+
+09. RECOMMENDATION NOTES
+• These recommendations are based on the supplied Novitech CSV data for 01 January 2024 through 31 December 2025.
+• Values shown as K or M are rounded approximations. Monetary values are reported as cost units because no currency is specified.
+• Recommendations identify review priorities; they do not establish confirmed root causes from aggregate data alone.
+• The production data has 21 blank quantity_produced values. The calculated production total is 1,029,692 units based on nonblank quantities, while total defects include all rows; the overall defect rate may change after missing values are resolved.
+• Estimated defect-cost exposure is defective quantity × product unit cost. It is an analytical exposure estimate, not confirmed scrap cost, rework cost or accounting loss.
+• Estimated production cost context is produced quantity × product unit cost, not formal accounting COGS. Potential production value context is produced quantity × target price, not actual revenue.
+• No planned-unit target, actual sales table, separate quality-inspection table, defect-type field, categorized downtime reason, expected lead time, or separate actual lead-time field was supplied. Metrics needing these fields should not be claimed as available.

@@ -1,0 +1,168 @@
+============================================================
+-- NOVITECH MANUFACTURING ANALYTICS
+-- PAGE 7: OPERATOR & SHIFT PERFORMANCE
+-- DAX MEASURES
+-- ============================================================
+
+
+-- ============================================================
+-- 01. OPERATOR NAME
+-- Create this as a CALCULATED COLUMN in dim_operators
+-- Modeling / Table tools -> New column
+-- ============================================================
+
+Operator Name =
+TRIM(
+    dim_operators[first_name]
+        & " "
+        & dim_operators[last_name]
+)
+
+
+-- ============================================================
+-- 02. PRODUCTION PERFORMANCE
+-- Use these measures for Operator-wise Production and
+-- Shift-wise Production & Defects visuals.
+-- Modeling -> New measure
+-- ============================================================
+
+Total Production =
+SUM(
+    fact_production_runs[quantity_produced]
+)
+
+
+Total Defects =
+SUM(
+    fact_production_runs[quantity_defective]
+)
+
+
+Production Runs =
+COUNTROWS(
+    fact_production_runs
+)
+
+
+Average Output per Run =
+DIVIDE(
+    [Total Production],
+    [Production Runs],
+    0
+)
+
+
+-- ============================================================
+-- 03. OPERATOR & SHIFT ANALYSIS
+-- Use Operator Name or shift from dim_operators as the axis.
+-- ============================================================
+
+Active Operators =
+DISTINCTCOUNT(
+    fact_production_runs[operator_id]
+)
+
+
+Average Operator Experience =
+AVERAGE(
+    dim_operators[experience_years]
+)
+
+
+Defect Rate =
+DIVIDE(
+    [Total Defects],
+    [Total Production],
+    0
+)
+
+
+-- ============================================================
+-- 04. DOWNTIME ANALYSIS
+-- Use for the Operator Downtime visual.
+-- ============================================================
+
+Total Downtime =
+SUM(
+    fact_production_runs[downtime_minutes]
+)
+
+
+Average Downtime per Run =
+DIVIDE(
+    [Total Downtime],
+    [Production Runs],
+    0
+)
+
+
+-- ============================================================
+-- 05. OPTIONAL PAGE 7 KPI MEASURES
+-- These are useful for cards or tooltips.
+-- ============================================================
+
+Average Defects per Run =
+DIVIDE(
+    [Total Defects],
+    [Production Runs],
+    0
+)
+
+
+Production per Active Operator =
+DIVIDE(
+    [Total Production],
+    [Active Operators],
+    0
+)
+
+
+-- ============================================================
+-- 06. VISUAL FIELD MAPPING
+-- ============================================================
+
+-- VISUAL 1: Operator-wise Production
+-- Visual: Clustered bar chart
+-- Y-axis: dim_operators[Operator Name]
+-- X-axis: [Total Production]
+-- Sort: [Total Production] descending
+
+
+-- VISUAL 2: Shift-wise Production & Defects
+-- Visual: Line and clustered column chart
+-- X-axis: dim_operators[shift]
+-- Column Y-axis: [Total Production]
+-- Line Y-axis: [Total Defects]
+-- Optional: Enable secondary axis for the line if scales differ.
+
+
+-- VISUAL 3: Operator Defects
+-- Visual: Clustered bar chart
+-- Y-axis: dim_operators[Operator Name]
+-- X-axis: [Total Defects]
+-- Sort: [Total Defects] descending
+
+
+-- VISUAL 4: Operator Downtime
+-- Visual: Clustered bar chart
+-- Y-axis: dim_operators[Operator Name]
+-- X-axis: [Total Downtime]
+-- Sort: [Total Downtime] descending
+
+
+-- ============================================================
+-- 07. REQUIRED MODEL RELATIONSHIP
+-- Confirm this relationship in Model view:
+-- dim_operators[operator_id] (1) ->
+-- fact_production_runs[operator_id] (*)
+-- Single-direction filtering from dimension to fact is recommended.
+-- ============================================================
+
+
+-- ============================================================
+-- 08. FORMATTING
+-- Defect Rate: Percentage, 2 decimal places
+-- Average Output per Run: Decimal number, 1-2 places
+-- Average Operator Experience: Decimal number, 1 place
+-- Total Production / Total Defects / Total Downtime: Whole number
+-- ============================================================

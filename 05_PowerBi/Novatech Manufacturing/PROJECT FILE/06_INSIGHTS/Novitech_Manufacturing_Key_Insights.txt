@@ -1,0 +1,107 @@
+NOVITECH MANUFACTURING – KEY INSIGHTS
+Production, Quality, Finance, Operations and Supply Chain Analytics
+Data period: 01 January 2024 – 31 December 2025
+
+Basis: Calculations from the supplied Novitech CSV tables: fact_production_runs, fact_purchase_orders, dim_products, dim_plants, dim_operators, dim_suppliers, dim_raw_materials and bridge_bill_of_materials. Monetary fields do not identify a currency in the supplied CSVs, so amounts below are reported as dataset cost units rather than assuming a currency.
+
+01. EXECUTIVE OVERVIEW – KEY INSIGHTS
+• The production dataset contains 3,666 recorded production runs and 1,029,692 units produced across five plants and ten products.
+• Total recorded defects are 17,649 units, giving a calculated defect rate of approximately 1.71% (defective quantity divided by recorded produced quantity).
+• Recorded downtime totals 86,165 minutes, or approximately 1,436 hours. Average downtime is about 23.5 minutes per production-run record.
+• Total recorded energy consumption is approximately 3.21 million kWh, equal to about 3.11 kWh per recorded produced unit.
+• The purchase-order dataset contains 1,600 orders and calculated procurement spend of approximately 21.54 million cost units (quantity ordered × unit price).
+• A total of 171 purchase orders are flagged as delayed, equal to a 10.69% delay rate. The remaining 1,429 orders are not flagged as delayed; this flag should not be treated as a separate audited on-time-delivery status.
+• Average recorded purchase-order lead time is approximately 9.84 days across the 1,586 orders with a nonblank lead-time value.
+• Estimated defect cost exposure is approximately 21.02 million cost units, calculated as defective quantity × product unit cost. This is an estimate, not confirmed scrap, rework, or accounting loss.
+• Estimated production cost context is approximately 1.128 billion cost units (produced quantity × product unit cost). Potential production value context is approximately 1.725 billion cost units (produced quantity × target price); this is not actual revenue.
+• Overall production volume is substantial, but quality variation by product, high energy intensity at selected plants, supplier delays, and missing data deserve management attention.
+
+02. PRODUCTION & PLANT PERFORMANCE – KEY INSIGHTS
+• Munich Electronics records the highest production volume at 325,469 units, followed by Tokyo Assembly at 306,559 units.
+• Monterrey Stamping records 153,024 units, Shanghai Battery Gigafactory 127,122 units, and Detroit Engine Plant 117,518 units.
+• Production by category is led by Renewable Energy at 332,443 units, followed by Consumer Electronics at 246,655, Automation at 194,612, Automotive at 168,655, and Aerospace at 87,327.
+• Solar Inverter is the highest-volume product at 258,096 units. Smart Thermostat follows at 246,655 units, then Programmable Logic Controller (PLC) at 188,141 units.
+• EV Battery Pack records 90,354 units, Electric Motor 150kW 78,301 units, Home Energy Storage Wall 72,816 units, Aerospace Wiring Harness 56,602 units, Avionics Controller 30,725 units, Industrial Robot Arm 6,471 units, and Wind Turbine Blade 1,531 units.
+• The highest monthly production is recorded in July 2024 at approximately 49,189 units. The lowest monthly production is recorded in June 2025 at approximately 36,170 units.
+• Munich Electronics and Tokyo Assembly together account for approximately 61.4% of recorded production, so plant comparisons should consider their larger production contribution.
+• The supplied production data does not contain a planned-units field. Production achievement percentage and planned-production shortfall therefore cannot be calculated from these CSVs alone.
+
+03. QUALITY & OPERATIONAL EFFICIENCY – KEY INSIGHTS
+• Overall recorded defect rate is approximately 1.71%, based on 17,649 defective units and 1,029,692 produced units. This metric should be treated as provisional until missing production quantities are reviewed.
+• Avionics Controller has the highest observed product defect rate at approximately 3.80%, with 1,166 defects across 30,725 produced units.
+• Solar Inverter has the highest absolute defect count at 5,397, with a defect rate of approximately 2.09%. Smart Thermostat records 2,818 defects and a defect rate of approximately 1.14%.
+• Monterrey Stamping has the highest plant-level defect rate at approximately 2.05%, followed by Detroit Engine Plant at 2.02%. Tokyo Assembly has the lowest plant-level defect rate at approximately 1.29%.
+• Munich Electronics has the highest defect count at 5,722 units; this is partly interpreted in the context of its highest production volume.
+• Estimated defect cost exposure is highest for EV Battery Pack at approximately 7.77 million cost units, followed by Solar Inverter at 4.32 million and Home Energy Storage Wall at 3.14 million.
+• Total recorded downtime is approximately 1,436 hours. September 2025 has the highest monthly downtime at 4,881 minutes; January 2025 has the lowest at 2,672 minutes.
+• Monthly energy consumption peaks in October 2024 at approximately 158,326 kWh and is lowest in June 2025 at approximately 111,063 kWh.
+• Shanghai Battery Gigafactory has the highest energy consumption per produced unit at approximately 10.48 kWh/unit, followed by Detroit Engine Plant at 8.39. Tokyo Assembly is approximately 0.38 and Munich Electronics 0.94 kWh/unit.
+• The supplied Novitech files do not include a separate quality-inspection table, inspection status, rework status, or defect-type field. Rework rates, pass/fail volumes, and defect categories cannot be established from the supplied CSVs.
+
+04. FINANCE & COST ANALYSIS – KEY INSIGHTS
+• Total procurement spend is approximately 21.54 million cost units, calculated from quantity ordered multiplied by unit price.
+• Lithium-Ion Cells account for the highest procurement spend at approximately 9.36 million cost units. High-Strength Steel Sheets follow at 1.92 million, and Semiconductor Chips at 1.79 million.
+• Apex Lithium Corp has the highest supplier-linked procurement spend at approximately 9.36 million cost units, followed by Shanghai Copper & Wire at 3.00 million and Global Packaging Logistics at 2.16 million.
+• The highest product unit cost is Wind Turbine Blade at 18,000 cost units, followed by Industrial Robot Arm at 15,000 and EV Battery Pack at 4,500. Smart Thermostat has the lowest unit cost at 45.
+• Based on target price minus unit cost, Wind Turbine Blade and Industrial Robot Arm each have a potential unit-margin context of 7,000 cost units. This is a target-price comparison, not actual accounting profit.
+• Estimated production cost context totals approximately 1.128 billion cost units. EV Battery Pack contributes approximately 406.59 million, Solar Inverter 206.48 million, and Home Energy Storage Wall 160.20 million.
+• Potential production value context totals approximately 1.725 billion cost units based on quantity produced × target price. It must not be presented as actual sales revenue because sales transactions are not supplied.
+• Estimated defect cost exposure totals approximately 21.02 million cost units. By plant, the largest exposure is at Shanghai Battery Gigafactory (7.79 million), Detroit Engine Plant (5.13 million), and Munich Electronics (5.07 million).
+• The combined view of unit costs, production volumes, procurement spend, and defect-cost exposure can help prioritize cost reviews, but these measures are analytical context and not formal accounting figures.
+
+05. PROCUREMENT & SUPPLIER PERFORMANCE – KEY INSIGHTS
+• The supplied purchase-order table contains 1,600 orders across 2024–2025.
+• Calculated procurement spend is approximately 21.54 million cost units, with an average spend of about 13,464 cost units per purchase-order record.
+• There are 171 delayed orders, giving a delay rate of 10.69%.
+• Average recorded lead time is approximately 9.84 days among 1,586 nonblank values; 14 purchase-order records have missing lead time.
+• Apex Lithium Corp has the highest spend (approximately 9.36 million), 125 orders, and three delayed orders, for a delay rate of 2.40%. Its recorded supplier rating is 5.0.
+• Global Packaging Logistics has 49 delayed orders from 263 orders (approximately 18.63%); MexiStamping S.A. has 37 from 203 (18.23%); Shanghai Copper & Wire has 40 from 269 (14.87%). These suppliers are useful priorities for delivery-performance review.
+• Average lead time is approximately 14.19 days for Global Packaging Logistics, 14.01 days for MexiStamping S.A., and 14.01 days for Shanghai Copper & Wire. Apex Lithium Corp averages approximately 4.06 days.
+• Supplier ratings are missing for Silicon Valley Semiconductors and Bavarian Precision Parts. Ratings are present for six of the eight suppliers.
+• The table includes a single lead_time_days field and an is_delayed flag; it does not include separate expected and actual lead-time fields. Expected-versus-actual lead-time analysis cannot be created without additional data.
+
+06. RAW MATERIALS & SUPPLY CHAIN RISK – KEY INSIGHTS
+• The raw-material dimension contains 12 materials, and the bill-of-materials bridge contains 41 product–material links across all ten products.
+• Products use between three and five distinct materials each. The average number of distinct materials per product is 4.1.
+• Copper Wire Spool is the most widely shared material, appearing in six products. High-Strength Steel Sheets, Electrical Connectors, and Microcontrollers each appear in five products.
+• Polycarbonate Shells, Semiconductor Chips, and Temperature Sensors each appear in four products.
+• Hydraulic Cylinders have the highest recorded standard cost at 120 cost units, followed by Aluminum Castings at 45, Semiconductor Chips at 12.50, and Microcontrollers at 8.20.
+• Two of the twelve raw materials have missing standard-cost values: Fiberglass Rolls and Temperature Sensors. Unit-of-measure values are also missing for Semiconductor Chips and Power Transistors.
+• Lithium-Ion Cells have the highest total procurement spend at approximately 9.36 million cost units; this is different from the highest per-unit standard cost, which belongs to Hydraulic Cylinders.
+• Fiberglass Rolls have 28 delayed orders, the largest delayed-order count by material in the supplied purchase-order data. Polycarbonate Shells have 23; Electrical Connectors and Hydraulic Cylinders have 21 each.
+• The production data records downtime minutes but does not classify downtime as supply-chain-related. Material-shortage downtime cannot be isolated without a downtime-reason/category field.
+
+07. OPERATOR & SHIFT PERFORMANCE – KEY INSIGHTS
+• The operator dimension contains 20 operators. Average experience is approximately 10.11 years across the 18 operators with a recorded experience value.
+• Night shift has the highest production among assigned shifts at 446,797 units, followed by Swing at 254,123 and Day at 209,898.
+• Night shift also has the highest recorded downtime among assigned shifts at 36,838 minutes (approximately 614.0 hours), followed by Swing at approximately 345.1 hours and Day at 328.5 hours.
+• Of operators with a recorded shift, Night accounts for the largest production volume. However, two operators have no shift assigned in the operator dimension.
+• Those missing shift assignments affect 393 production-run records, 118,874 produced units, 2,283 defective units, and approximately 148.6 downtime hours. A shift comparison should show a blank/unknown category or correct these missing values before drawing final conclusions.
+• Michael Moore records the highest operator-level production at 59,467 units and the highest absolute defect count at 1,596 units. Defect count should be compared with production volume before judging operator quality.
+• Michael Williams has an observed defect rate of approximately 3.29% (1,516 defects across 46,036 produced units), making the operator/product/shift context worth reviewing rather than treating the rate alone as proof of individual performance.
+• John Jackson records the highest operator-level downtime at 5,560 minutes (approximately 92.7 hours), followed by Elizabeth Martin at 5,159 minutes.
+• Two operators have missing experience values. Operator-level comparisons should be interpreted alongside shift, product mix, volume, and missing-data limitations.
+
+08. CROSS-DASHBOARD BUSINESS INSIGHTS
+• Production is concentrated in Renewable Energy, led by Solar Inverter, while Smart Thermostat and PLC also contribute high unit volumes.
+• Avionics Controller has the highest product defect rate, while Solar Inverter has the highest absolute defect count. These indicate different quality priorities: rate-focused investigation versus total-defect reduction.
+• EV Battery Pack has the highest estimated defect cost exposure at approximately 7.77 million cost units; it is a logical priority for reviewing both quality and unit-cost context.
+• Shanghai Battery Gigafactory and Detroit Engine Plant show the highest energy consumed per produced unit. Validate units, output completeness, and operating context before treating this as a definitive efficiency ranking.
+• Apex Lithium Corp represents approximately 43.5% of calculated procurement spend, indicating supplier concentration worth monitoring even though its recorded delay rate is relatively low.
+• Global Packaging Logistics and MexiStamping S.A. have the highest supplier delay rates among the supplied order records; delivery improvement may help reduce procurement risk.
+• Copper Wire Spool is shared by six products, making it the broadest product dependency in the bill of materials. Monitor availability of shared materials as part of supply continuity planning.
+• Night shift records the greatest output and the most downtime among assigned shifts; evaluate output, defects, and downtime together rather than volume alone.
+• Management should review data quality—especially missing production quantities, shift assignments, lead times, supplier ratings, and material costs—before treating all KPIs as final.
+
+09. DATA INTERPRETATION NOTES
+• Findings are calculated from the supplied Novitech CSVs for 01 January 2024 through 31 December 2025; rounded values are approximations of the raw aggregates.
+• The production table has 3,666 records, including 21 rows with missing quantity_produced. SUM-based production totals ignore blank quantities; the recorded total of 1,029,692 should be revisited after those blanks are resolved.
+• The 17,649 defective units include defects from rows whose produced quantity is blank. As a result, the calculated overall defect rate of approximately 1.71% may be affected by missing denominator data.
+• Procurement spend is defined here as quantity_ordered × unit_price. The CSVs do not specify a currency, and procurement spend should not automatically be interpreted as recognized accounting expense.
+• Estimated production cost context is quantity_produced × product unit_cost; it is not a formal accounting cost-of-goods-sold calculation.
+• Estimated defect cost exposure is quantity_defective × product unit_cost. It is a proxy for potential cost exposure, not confirmed scrap, rework, or financial loss.
+• Potential production value context is quantity_produced × target_price. It is a planning/target-price scenario, not actual revenue.
+• The supplied files do not include planned production units, a separate machine dimension, a quality-inspection fact table, defect-type categories, inspection pass/fail/rework statuses, separate expected lead time, or categorized downtime reasons. KPIs requiring these fields cannot be substantiated from the supplied data.
+• Fourteen purchase orders have missing lead_time_days; two suppliers have missing supplier ratings; two raw materials have missing standard_cost; two operators have missing shift, and two operators have missing experience_years.
+• The two operators with missing shift assignments account for 118,874 produced units across 393 runs. For shift charts, preserve the blank/unknown category or correct the source mapping so that shift totals are not silently incomplete.
+• Potential margin must not be labelled actual profit. Financial and cost measures should retain clear labels such as “Estimated Production Cost Context”, “Potential Production Value Context”, and “Estimated Defect Cost Exposure”.
